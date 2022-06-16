@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { View, Text, StyleSheet, Image, TextInput, Button, TouchableHighlight, ImageBackground } from 'react-native'
+import SwitchSelector from "react-native-switch-selector";
 
 import { auth, login } from '../../api/api';
 
@@ -14,24 +15,24 @@ const logo = require('./../../assets/images/erLogo.png')
 
 const LoginScreen = (props) => {
     useEffect(() => {
-        async function jwt_auth () {
+        async function jwt_auth() {
             try {
                 await auth().then((res) => {
-                    if(res.status===400){
+                    if (res.status === 400) {
                         return alert('Ошибка авторизации')
                     }
                     props.navigation.navigate('Main'),
-                    props.updateUserInfo(res.data.data),
-                    AsyncStorage.setItem('jwt_token', res.data.data.token),
-                    alert(res.data.message)
+                        props.updateUserInfo(res.data.data),
+                        AsyncStorage.setItem('jwt_token', res.data.data.token),
+                        alert(res.data.message)
                 })
-                
+
             } catch (error) {
-                alert(error)  
+                alert(error)
             }
         }
         jwt_auth()
-        
+
     }, [])
 
     const registerIntent = () => {
@@ -39,16 +40,20 @@ const LoginScreen = (props) => {
     }
 
     const [load, setLoad] = useState(false)
+    const [role, setRole] = useState('user')
 
     const loginIntent = async () => {
+        setLoad(true)
+        if ( role === "volonteer"){
+                return (alert('Вход под волонтером'), setLoad(false))
+        }
         try {
-            setLoad(true)
             await login(props.loginSignIn, props.passwordSignIn)
                 .then((res) => {
                     if (res.status === 400) {
                         return (alert(response.data.message), setLoad(false))
                     }
-                    return  (
+                    return (
                         props.navigation.navigate('Main'),
                         props.updateUserInfo(res.data.data),
                         AsyncStorage.setItem('jwt_token', res.data.data.token),
@@ -89,6 +94,20 @@ const LoginScreen = (props) => {
                         value={props.passwordSignIn}>
 
                     </TextInput>
+
+                </View>
+                <View style={styles.switchSelector}>
+                    <SwitchSelector
+                        initial={0}
+                        onPress={value => setRole(`${value}`)}
+                        options={[
+                            { label: "Пользователь", value: "user" },
+                            { label: "Волонтер", value: "volonteer" }
+                        ]}
+                        textColor={'blue'}
+                        selectedColor={'white'}
+                        buttonColor={'blue'}
+                    />
                 </View>
 
                 <View style={styles.buttons}>
@@ -185,6 +204,12 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'blue'
     },
+    switchSelector: {
+        width: '100%',
+        width: '100%',
+        marginVertical: 20,
+        maxWidth: 220
+    }
 
 })
 
