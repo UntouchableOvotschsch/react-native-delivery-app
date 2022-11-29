@@ -69,7 +69,7 @@ export const login = (loginSignIn, passwordSignIn) => {
 
 export const auth = async () => {
     return(
-        await axios.get(baseURL + "/user//login/auth",
+        await axios.get(baseURL + "/user/login/auth",
         {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",

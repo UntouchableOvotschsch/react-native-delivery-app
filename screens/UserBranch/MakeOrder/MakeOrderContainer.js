@@ -17,7 +17,7 @@ import {
     updateDeliveryDateAC,
     updateDeliveryTimeAC,
     updateDeliveryAdressAC
-} from '../../redux/makeOrderReducer.js'
+} from '../../../redux/makeOrderReducer.js'
 
 
 

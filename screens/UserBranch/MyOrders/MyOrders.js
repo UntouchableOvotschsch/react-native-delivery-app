@@ -9,9 +9,9 @@ import {
     TouchableHighlight,
     ScrollView
 } from 'react-native';
-import { getOrders } from '../../api/api';
-import OrderListComponent from '../../components/OrderListComponent';
-import ScreenHeader from '../../components/ScreenHeader';
+import { getOrders } from '../../../api/api';
+import OrderListComponent from '../../../components/OrderListComponent';
+import ScreenHeader from '../../../components/ScreenHeader';
 
 
 

@@ -18,17 +18,21 @@ import { Provider } from 'react-redux';
 
 import ScreenHeader from './components/ScreenHeader.js';
 
-
-
-import MainScreen from './screens/MainScreen/MainScreen.js';
-
-
-import MakeOrderContainer from './screens/MakeOrder/MakeOrderContainer.js';
-import MyOrdersContainer from './screens/MyOrders/MyOrdersContainer.js';
-import OrderDetailContainer from './screens/OrderDetail/OrderDetailContainer.js';
+//Common
 import RegisterScreenContainer from './screens/RegisterScreen/RegisrerScreenContainer.js';
 import LoginScreenContainer from './screens/Login/LoginScreenContainer.js';
-import MainScreenContainer from './screens/MainScreen/MainScreenContainer.js';
+
+
+//User
+
+import MakeOrderContainer from './screens/UserBranch/MakeOrder/MakeOrderContainer.js';
+import MyOrdersContainer from './screens/UserBranch/MyOrders/MyOrdersContainer.js';
+import OrderDetailContainer from './screens/UserBranch/OrderDetail/OrderDetailContainer.js';
+import MainScreenContainer from './screens/UserBranch/MainScreen/MainScreenContainer.js';
+
+//Volonteer
+
+import MainScreenVolonteerContainer from './screens/VolonteerBranch/MainScreen/MainScreenVolonteerContainer'
 
 
 
@@ -86,6 +90,11 @@ const App = () => {
               name="OrderDetail"
               component={OrderDetailContainer}
               options={{ title: 'Детали заказа' }}
+            />
+            <Stack.Screen
+              name="MainScreenVoloneer"
+              component={MainScreenVolonteerContainer}
+              options={{ headerShown: false }}
             />
 
           </Stack.Navigator>

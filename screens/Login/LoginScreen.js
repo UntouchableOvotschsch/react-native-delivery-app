@@ -45,7 +45,11 @@ const LoginScreen = (props) => {
     const loginIntent = async () => {
         setLoad(true)
         if ( role === "volonteer"){
-                return (alert('Вход под волонтером'), setLoad(false))
+                return (
+                    alert('Вход под волонтером'), 
+                    props.navigation.navigate('MainScreenVoloneer'),
+                    setLoad(false)
+                )
         }
         try {
             await login(props.loginSignIn, props.passwordSignIn)

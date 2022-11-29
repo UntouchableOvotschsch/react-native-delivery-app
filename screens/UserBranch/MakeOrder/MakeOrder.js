@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 
-import { sendOrderAPI } from '../../api/api';
+import { sendOrderAPI } from '../../../api/api';
 
 
 import {
@@ -17,9 +17,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import AddBlock from '../../components/AddBlock';
-import AddNewProduct from '../../components/AddNewProduct';
-import DateTimePickerComponent from '../../components/DateTimePicker';
+import AddBlock from '../../../components/AddBlock';
+import AddNewProduct from '../../../components/AddNewProduct';
+import DateTimePickerComponent from '../../../components/DateTimePicker';
 // import { useLinkProps } from '@react-navigation/native';
 
 

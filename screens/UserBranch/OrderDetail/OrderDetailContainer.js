@@ -4,7 +4,7 @@ import OrderDetail from './OrderDetail.js'
 
 
 import { connect } from "react-redux";
-import { setOrderDetailAC } from '../../redux/orderDetailReducer';
+import { setOrderDetailAC } from '../../../redux/orderDetailReducer';
 
 
 

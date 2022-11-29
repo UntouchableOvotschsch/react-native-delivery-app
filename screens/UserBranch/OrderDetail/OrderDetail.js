@@ -12,10 +12,10 @@ import {
     ScrollView
 } from 'react-native';
 
-import { getOrderById } from '../../api/api';
+import { getOrderById } from '../../../api/api';
 
 
-import OrderDetailComponent from '../../components/OrderDetailComponent'
+import OrderDetailComponent from '../../../components/OrderDetailComponent'
 
 const OrderDetail = ({ route,
     navigation,

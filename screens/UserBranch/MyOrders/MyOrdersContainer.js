@@ -4,7 +4,7 @@ import MyOrders from './MyOrders.js'
 
 
 import { connect } from "react-redux";
-import { setOrdersAC } from '../../redux/myOrdersReducer';
+import { setOrdersAC } from '../../../redux/myOrdersReducer';
 
 
 
